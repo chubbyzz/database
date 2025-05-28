@@ -1,0 +1,15 @@
+# Database Management Repository
+
+This repository is designed to manage databases, including migrations, configurations, and related tasks.
+
+## Makefile Commands
+
+Below is a list of available `Makefile` commands:
+
+- **`make up`**: Start the Docker containers by running the script `./scripts/docker/compose/up.sh`.
+- **`make down`**: Stop the Docker containers by running the script `./scripts/docker/compose/down.sh`.
+- **`make restart`**: Restart the Docker containers by first stopping them (`make down`) and then starting them again (`make up`).
+- **`make db-create name=<database_name>`**: Create a new database by running the script `./scripts/database/create.sh` with the specified `name` variable (e.g., `make db-create name=my_database`).
+- **`make db-config-show`**: Display the current database configuration by running the script `./scripts/database/config/show.sh`.
+
+Refer to the `Makefile` for more details on each command.
