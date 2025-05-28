@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Navigate to the parent directory where docker-compose.yml is located
-ROOT=$(./root.sh)
+ROOT=$(./scripts/root.sh)
 
 cd "$ROOT/docker"
 
