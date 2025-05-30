@@ -10,7 +10,7 @@ echo "$ROOT/docker"
 # Check if any docker-compose services are running
 if ! docker-compose ps | grep -q "Up"; then
   echo "Starting docker-compose services..."
-  docker-compose up -d
+  docker-compose up -d --build
 else
   echo "Docker-compose services are already running."
 fi
