@@ -45,3 +45,7 @@ cd $ROOT
 DBSTRING="$db_string?sslmode=disable"
 
 docker compose -f docker/docker-compose.yml exec app sh -c "psql \"$DBSTRING\" -c \"CREATE DATABASE $database;\""
+
+$ROOT/scripts/database/config/use.sh "$database"
+
+echo "Database $database created successfully at $database_path"

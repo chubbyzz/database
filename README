@@ -6,10 +6,28 @@ This repository is designed to manage databases, including migrations, configura
 
 Below is a list of available `Makefile` commands:
 
+### Docker Commands
 - **`make up`**: Start the Docker containers by running the script `./scripts/docker/compose/up.sh`.
 - **`make down`**: Stop the Docker containers by running the script `./scripts/docker/compose/down.sh`.
 - **`make restart`**: Restart the Docker containers by first stopping them (`make down`) and then starting them again (`make up`).
+- **`make bash`**: Open a shell session in the app container using Docker Compose.
+
+### Database Commands
 - **`make db-create name=<database_name>`**: Create a new database by running the script `./scripts/database/create.sh` with the specified `name` variable (e.g., `make db-create name=my_database`).
+- **`make db-drop name=<database_name>`**: Drop an existing database by running the script `./scripts/database/drop.sh` with the specified `name` variable.
+- **`make db-up name=<database_name>`**: Start the database by running the script `./scripts/database/up.sh` with the specified `name` variable.
+- **`make db-use name=<database_name>`**: Set the active database configuration by running the script `./scripts/database/config/use.sh` with the specified `name` variable.
+- **`make db-name`**: Display the name of the currently active database by running the script `./scripts/database/config/name.sh`.
 - **`make db-config-show`**: Display the current database configuration by running the script `./scripts/database/config/show.sh`.
+
+### Goose Migration Commands
+- **`make g-run run=<command> name=<database_name>`**: Run a Goose migration command by executing the script `./scripts/database/goose/run.sh` with the specified `run` and `name` variables.
+- **`make g-up name=<database_name>`**: Apply all pending Goose migrations by running the script `./scripts/database/goose/up.sh` with the specified `name` variable.
+- **`make g-down name=<database_name>`**: Roll back the last Goose migration by running the script `./scripts/database/goose/down.sh` with the specified `name` variable.
+- **`make g-version name=<database_name>`**: Display the current Goose migration version by running the script `./scripts/database/goose/version.sh` with the specified `name` variable.
+- **`make g-status name=<database_name>`**: Show the status of Goose migrations by running the script `./scripts/database/goose/status.sh` with the specified `name` variable.
+- **`make g-create <migration_name> <type>`**: Create a new Goose migration file by running the script `./scripts/database/goose/create.sh` with the specified `migration_name` and `type` variables.
+
+Refer to the `Makefile` for more details on each command.
 
 Refer to the `Makefile` for more details on each command.

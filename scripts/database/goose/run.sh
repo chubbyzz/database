@@ -15,8 +15,8 @@ database_path="$ROOT/database/$database"
 
 cd $database_path
 
-echo $db_string
-
 GOOSE_DBSTRING="$db_string" goose $1
 
-docker compose exec app sh -c "GOOSE_DBSTRING=\"$db_string\" goose $1"
+docker compose exec app sh -c "GOOSE_DBSTRING=\"$db_string\" goose $1" 2>&1 | grep -v "no configuration file provided: not found"
+
+exit 0
